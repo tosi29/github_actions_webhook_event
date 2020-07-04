@@ -27,6 +27,7 @@ jobs:
         echo -ne "${{ github.event.issue.title }}"
         echo -ne "${{ github.event.issue.body }}"
         echo -ne "${{ github.event.issue.html_url }}"
+        
     - name: Issue comment handling
       if: github.event_name == 'issue_comment'
       run: |
@@ -34,6 +35,7 @@ jobs:
         echo -ne "${{ github.event.issue.title }}"
         echo -ne "${{ github.event.comment.body }}"
         echo -ne "${{ github.event.comment.html_url }}"
+        
     - name: Pull Request handling
       if: github.event_name == 'pull_request'
       run: |
@@ -49,6 +51,7 @@ jobs:
         echo -ne "${{ github.event.pull_request.title }}"
         echo -ne "${{ github.event.review.body }}"
         echo -ne "${{ github.event.review.html_url }}"
+        
     - name: Pull Request comment handling
       if: github.event_name == 'pull_request_review_comment'
       run: |
