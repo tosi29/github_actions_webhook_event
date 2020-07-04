@@ -1,0 +1,57 @@
+name: Github Event Handling
+
+on:
+  issues:
+    types: [ opened, edited ]
+  issue_comment:
+    types: [ created, edited ]
+  pull_request:
+    types: [ opened, edited ]
+  pull_request_review:
+    types: [ submitted, edited ]
+  pull_request_review_comment:
+    type: [ created, edited ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Issue handling
+      if: github.event_name == 'issues'
+      run: |
+        echo -ne "${{ github.event.action }}"
+        echo -ne "${{ github.event.issue.title }}"
+        echo -ne "${{ github.event.issue.body }}"
+        echo -ne "${{ github.event.issue.html_url }}"
+    - name: Issue comment handling
+      if: github.event_name == 'issue_comment'
+      run: |
+        echo -ne "${{ github.event.action }}"
+        echo -ne "${{ github.event.issue.title }}"
+        echo -ne "${{ github.event.comment.body }}"
+        echo -ne "${{ github.event.comment.html_url }}"
+    - name: Pull Request handling
+      if: github.event_name == 'pull_request'
+      run: |
+        echo -ne "${{ github.event.action }}"
+        echo -ne "${{ github.event.pull_request.title }}"
+        echo -ne "${{ github.event.pull_request.body }}"
+        echo -ne "${{ github.event.pull_request.html_url }}"
+        
+    - name: Pull Request review handling
+      if: github.event_name == 'pull_request'
+      run: |
+        echo -ne "${{ github.event.action }}"
+        echo -ne "${{ github.event.pull_request.title }}"
+        echo -ne "${{ github.event.review.body }}"
+        echo -ne "${{ github.event.review.html_url }}"
+    - name: Pull Request comment handling
+      if: github.event_name == 'pull_request_review_comment'
+      run: |
+        echo -ne "${{ github.event.action }}"
+        echo -ne "${{ github.event.pull_request.title }}"
+        echo -ne "${{ github.event.comment.body }}"
+        echo -ne "${{ github.event.comment.html_url }}"
