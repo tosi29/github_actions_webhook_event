@@ -42,7 +42,7 @@ jobs:
         echo -ne "${{ github.event.pull_request.html_url }}"
         
     - name: Pull Request review handling
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request_review'
       run: |
         echo -ne "${{ github.event.action }}"
         echo -ne "${{ github.event.pull_request.title }}"
