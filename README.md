@@ -9,7 +9,7 @@ GitHubのWebHook Eventの挙動を解析してわかったこと
   
 ## pull_request_review
 * Finish your reviewからSubmit reviewを押して確定したときは、editedとsubmittedの両方が送られる
-  * どちらにもbodyやhtml_urlは同じものが送られる
+  * bodyやhtml_urlは、どちらにも同じものが送られる
 
 
 ## References
