@@ -8,7 +8,8 @@ on:
   pull_request:
     types: [ opened, edited ]
   pull_request_review:
-    types: [ submitted, edited ]
+#    types: [ submitted, edited ]
+    types: [ edited ]
   pull_request_review_comment:
     type: [ created, edited ]
 
@@ -17,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+#    - uses: actions/checkout@v2
 
     - name: Issue handling
       if: github.event_name == 'issues'
