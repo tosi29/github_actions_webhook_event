@@ -23,7 +23,7 @@ jobs:
     - name: Issue handling
       if: github.event_name == 'issues'
       run: |
-        echo -ne "${{ github.event.action }}"
+        echo -ne '${{ github.event.action }}'
         echo -ne "${{ github.event.issue.title }}"
         echo -ne "${{ github.event.issue.body }}"
         echo -ne "${{ github.event.issue.html_url }}"
