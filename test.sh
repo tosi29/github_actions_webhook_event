@@ -1,10 +1,5 @@
 #! /bin/sh
 
-echo "TEST: issue_created"
-cat issue_created | jq .issue.title
-cat issue_created | jq .issue.body
-cat issue_created | jq .issue.html_url
-
 
 echo "TEST: issue_edited"
 cat issue_edited | jq .issue.title
